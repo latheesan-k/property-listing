@@ -21,6 +21,10 @@ const appRoutes: Routes = [
   { path: 'add-listing', component: AddListingComponent },
 ];
 
+export function appConfigFactory(config: AppConfig) {
+  return () => config.load();
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +43,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     AppConfig,
-    { provide: APP_INITIALIZER, useFactory: (config: AppConfig) => () => config.load(), deps: [AppConfig], multi: true }
+    { provide: APP_INITIALIZER, useFactory: appConfigFactory, deps: [AppConfig], multi: true }
   ],
   bootstrap: [AppComponent]
 })
