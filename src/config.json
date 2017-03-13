@@ -1,9 +1,0 @@
-{
-    "firebase": {
-        "apiKey": "AIzaSyDmBbTenlzy-_69ep1lb3V8HrYT8GYlVUk",
-        "authDomain": "property-listing-899bd.firebaseapp.com",
-        "databaseURL": "https://property-listing-899bd.firebaseio.com",
-        "storageBucket": "property-listing-899bd.appspot.com",
-        "messagingSenderId": "294545990849"
-    }
-}
