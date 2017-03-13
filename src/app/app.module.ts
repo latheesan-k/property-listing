@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
-import { APP_INITIALIZER } from '@angular/core';
-import { AppConfig } from './app.config';
+import { AngularFireModule } from 'angularfire2';
+import { firebaseConfig } from './../environments/firebase.config';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,10 +21,6 @@ const appRoutes: Routes = [
   { path: 'add-listing', component: AddListingComponent },
 ];
 
-export function appConfigFactory(config: AppConfig) {
-  return () => config.load();
-}
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,12 +35,10 @@ export function appConfigFactory(config: AppConfig) {
     BrowserModule,
     FormsModule,
     HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [
-    AppConfig,
-    { provide: APP_INITIALIZER, useFactory: appConfigFactory, deps: [AppConfig], multi: true }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
