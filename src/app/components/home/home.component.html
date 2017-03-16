@@ -4,7 +4,7 @@
     <hr>
     <p>Manage your property listing, for free in the cloud</p>
     <p>Test application built on Angular 2, Firebase and Bootstrap 4</p>
-    <a href="">
+    <a *ngIf="!(af.auth | async)" (click)="login()">
       <img src="assets/img/google.png">
     </a>
   </div>
